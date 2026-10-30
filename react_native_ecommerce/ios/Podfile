@@ -1,3 +1,7 @@
+# Abrova pods come from Abrova Center; public pods from the CocoaPods CDN.
+source 'https://center.abrova.ir/abrova/specs.git'
+source 'https://cdn.cocoapods.org/'
+
 # Resolve react_native_pods.rb with node to allow for hoisting
 require Pod::Executable.execute_command('node', ['-p',
   'require.resolve(
@@ -18,10 +22,6 @@ target 'AbrovaChatEcommerce' do
   config = use_native_modules!
 
   pod 'MqttCocoaAsyncSocket', :modular_headers => true
-
-  # The native Abrova Push SDK (used by @abrova/push-react-native) is published on Abrova Center.
-  pod 'PNProtocol', :git => 'https://center.abrova.ir/abrova/pn-protocol-ios.git', :tag => '0.2.2'
-  pod 'AbrovaPushSDK', :git => 'https://center.abrova.ir/abrova/abrova-push-ios-sdk.git', :tag => '0.1.19'
 
   use_react_native!(
     :path => config[:reactNativePath],
